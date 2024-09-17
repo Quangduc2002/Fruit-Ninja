@@ -1,0 +1,176 @@
+.App {
+  text-align: center;
+  width: 100vw;
+
+}
+
+.background{
+  height: 100vh;
+  background-image: url('Images/backGround.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+.game-board {
+  position: relative;
+  width: 1300px;
+  height: 100vh;
+  overflow: hidden;
+  margin: auto;
+
+  @media screen and (max-width:1280px) {
+    width: auto;
+  }
+}
+
+.fruit {
+  position: absolute;
+  font-size: 3rem;
+  user-select: none;
+  bottom: 0;
+  animation: float-up-down 1.5s ease-in-out forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fruit .left-half,
+.fruit .right-half {
+  position: absolute;
+  opacity: 0; 
+  z-index: 0;
+  transition: transform 1s, opacity 1s;
+}
+
+.fruit.sliced .whole {
+  opacity: 0; 
+}
+
+// .fruit.sliced .left-half,
+// .fruit.sliced .right-half {
+//   opacity: 1 !important; 
+//   animation: fall 1.5s ease-in-out forwards; 
+// }
+
+.fruit.sliced .left-half {
+  opacity: 1;
+  animation: fall-left 1.5s ease-in-out forwards; 
+}
+
+.fruit.sliced .right-half {
+  opacity: 1;
+  animation: fall-right 1.5s ease-in-out forwards; 
+}
+
+
+.fruit-play{
+  position: absolute;
+  font-size: 3rem;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.fruit-play.sliced .left-half {
+  animation: float-down-left 1s ease-in-out forwards; 
+}
+
+.fruit-play.sliced .right-half {
+  animation: float-down-right 1s ease-in-out forwards; 
+}
+
+
+.new-game {
+  animation: newgame 4s linear infinite; 
+}
+
+.new-game-fruit {
+  animation: newgamefruit 4s linear infinite; 
+}
+
+
+@keyframes float-down-left {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+
+  100% {
+    transform: translateY(60vh) rotate(-360deg);
+  }
+}
+
+@keyframes float-down-right {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+
+  100% {
+    transform: translateY(60vh) rotate(360deg);
+  }
+}
+
+@keyframes float-up-down {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-60vh) rotate(180deg);
+  }
+  100% {
+    transform: translateY(60vh) rotate(360deg);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translate(0, 0) !important;
+  }
+  100% {
+    transform: translateY(100px) rotate(360deg);
+  }
+}
+
+
+@keyframes fall-left {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    transform: translate(-200px, -200px) rotate(45deg) ;
+  }
+}
+
+@keyframes fall-right {
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
+  100% {
+    transform: translate(200px, -200px) rotate(-45deg);
+  }
+}
+
+@keyframes newgamefruit {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes newgame {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
